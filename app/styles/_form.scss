@@ -1,0 +1,12 @@
+.form-item {
+  display: flex;
+  flex-direction: column;
+
+  & + & {
+    margin-top: $m-gutter / 2;
+  }
+}
+
+.control {
+  font: inherit;
+}

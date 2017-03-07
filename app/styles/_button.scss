@@ -1,0 +1,18 @@
+.button {
+  padding: ($m-gutter / 2) $m-gutter;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+
+  &--back {
+    background: $c-grey;
+    color: $c-text;
+  }
+
+  &--primary {
+    background: $c-secondary;
+    color: $c-pure-white;
+  }
+}

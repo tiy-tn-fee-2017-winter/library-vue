@@ -14,4 +14,17 @@
   &__collection {
     margin: 0 (-$m-gutter) (-$m-gutter);
   }
+
+  &__actions {
+    display: flex;
+    margin: $m-gutter (-$m-gutter) (-$m-gutter);
+
+    > * {
+      flex-grow: 1;
+    }
+  }
+
+  * + &__content {
+    margin-top: $m-gutter;
+  }
 }
