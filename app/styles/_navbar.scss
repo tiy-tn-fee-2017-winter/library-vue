@@ -19,6 +19,11 @@
     justify-content: flex-end;
   }
 
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
   > * {
     flex-basis: 0;
     flex-grow: 1;
