@@ -1,0 +1,36 @@
+.top-nav {
+  padding: ($m-gutter / 2) $m-gutter;
+
+  background: $c-primary;
+  color: $c-secondary;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+
+  &__center {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  > * {
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: 0;
+  }
+}
+
+.nav-list {
+  display: flex;
+  margin: 0 (-$m-gutter);
+
+  > * + * {
+    margin: 0 $m-gutter;
+  }
+}

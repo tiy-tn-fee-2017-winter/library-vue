@@ -3,6 +3,8 @@
 
 // ** Colors **
 $c-white: #eee;
+$c-primary: #1e1426;
+$c-secondary: #64c7af;
 
 // ** Measurements **
 $m-gutter: 1rem;
@@ -20,3 +22,4 @@ $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
 @import 'box-sizing';
 @import 'reset';
 @import 'layout';
+@import 'navbar';
