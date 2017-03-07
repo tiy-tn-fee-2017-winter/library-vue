@@ -21,6 +21,19 @@
     width: calc(100% / #{$grid-col-num} - #{$m-gutter} - #{$m-gutter});
     margin: $m-gutter;
 
+    @for $i from 1 through $grid-col-num {
+      &--#{$i} {
+        $multiplier: $i / $grid-col-num;
+
+        flex-grow: 0;
+        width: calc(100% * #{$multiplier} - #{$m-gutter} - #{$m-gutter});
+      }
+    }
+
+    &--center {
+      margin: $m-gutter auto;
+    }
+
     @media (min-width: $b-phone + 1) and (max-width: $b-tablet + 1) {
       width: calc(100% / #{$grid-col-num-tablet} - #{$m-gutter} - #{$m-gutter});
     }
