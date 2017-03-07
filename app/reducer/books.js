@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export default function books(state = [], action) {
   switch (action.type) {
     case 'BOOK@FINDALL_COMPLETE':
