@@ -11,8 +11,8 @@ Vue.use(VueRouter);
 
 // Route definitions
 const routes = [
-  { path: '/', component: IndexPage },
-  { path: '/books/new', component: NewPage },
+  { path: '/', component: IndexPage, name: 'index' },
+  { path: '/books/new', component: NewPage, name: 'new' },
 ];
 
 // Create the actual router for our application

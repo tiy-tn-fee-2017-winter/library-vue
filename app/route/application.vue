@@ -9,8 +9,12 @@
 
           <div class="navbar__right">
             <ul class="nav-list">
-              <li class="nav-list__item"><router-link to="/">All Books</router-link></li>
-              <li class="nav-list__item"><router-link to="/books/new">Add Book</router-link></li>
+              <li class="nav-list__item">
+                <router-link v-bind:to="{ name: 'index' }">All Books</router-link>
+              </li>
+              <li class="nav-list__item">
+                <router-link v-bind:to="{ name: 'new' }">Add Book</router-link>
+              </li>
             </ul>
           </div>
         </nav>
