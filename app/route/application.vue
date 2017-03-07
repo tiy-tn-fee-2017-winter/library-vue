@@ -9,8 +9,8 @@
 
           <div class="navbar__right">
             <ul class="nav-list">
-              <li class="nav-list__item">All Books</li>
-              <li class="nav-list__item">Add Book</li>
+              <li class="nav-list__item"><router-link to="/">All Books</router-link></li>
+              <li class="nav-list__item"><router-link to="/books/new">Add Book</router-link></li>
             </ul>
           </div>
         </nav>
@@ -19,7 +19,7 @@
 
     <div class="section">
       <div class="container">
-        <index-page></index-page>
+        <router-view></router-view>
       </div>
     </div>
   </div>
