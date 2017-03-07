@@ -19,14 +19,19 @@
 
     <div class="section">
       <div class="container">
-
+        <index-page></index-page>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import IndexPage from './index.vue';
+
 export default {
+  components: {
+    IndexPage
+  },
   data() {
     return {
     };

@@ -1,0 +1,17 @@
+.card {
+  padding: $m-gutter;
+  background: $c-pure-white;
+
+  box-shadow: $shadow-1;
+
+  &__header {
+    margin: -$m-gutter;
+    margin-bottom: 0;
+    border-bottom: $border-grey;
+    padding: ($m-gutter / 2) $m-gutter;
+  }
+
+  &__collection {
+    margin: 0 (-$m-gutter) (-$m-gutter);
+  }
+}

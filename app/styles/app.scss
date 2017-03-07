@@ -3,7 +3,12 @@
 
 // ** Colors **
 $c-white: #eee;
+$c-pure-white: #fff;
+$c-grey: #ccc;
 $c-primary: #1e1426;
+$c-black: #111;
+$c-text: #444;
+$c-dark-grey: #888;
 $c-secondary: #64c7af;
 
 // ** Measurements **
@@ -17,9 +22,17 @@ $b-phone: 480px;
 $grid-col-num: 6;
 $grid-col-num-tablet: 2;
 
+// ** Borders and Shadows **
+$border-grey: $c-grey solid 0.1rem;
+$border-light: rgba($c-grey, 0.4) solid 0.1rem;
+$shadow-1: 0.2rem 0.2rem 0.4rem rgba($c-black, 0.2);
+
 $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
 @import 'font-awesome';
 @import 'box-sizing';
 @import 'reset';
 @import 'layout';
 @import 'navbar';
+@import 'card';
+@import 'collection';
+@import 'book-item';

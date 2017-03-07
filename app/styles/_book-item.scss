@@ -1,0 +1,14 @@
+.book-item {
+  &__title {
+    margin: 0;
+  }
+
+  &__author {
+    margin: 0;
+    color: $c-dark-grey;
+  }
+
+  &__edit {
+    margin: 0;
+  }
+}

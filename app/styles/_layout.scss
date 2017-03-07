@@ -44,3 +44,19 @@
     flex-wrap: nowrap;
   }
 }
+
+.row {
+  display: flex;
+  align-items: center;
+
+  &__left {
+    display: flex;
+    flex: 1 0 0;
+  }
+
+  &__right {
+    display: flex;
+    flex: 1 0 0;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,9 @@
+.collection {
+  &__item {
+    padding: ($m-gutter / 2) $m-gutter;
+  }
+
+  > * + * {
+    border-top: $border-light;
+  }
+}
