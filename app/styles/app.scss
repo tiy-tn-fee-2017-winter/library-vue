@@ -1,6 +1,22 @@
 // @import 'yoga';
 // @import 'normalize';
 
-// $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
-// @import 'font-awesome';
+// ** Colors **
+$c-white: #eee;
+
+// ** Measurements **
+$m-gutter: 1rem;
+
+// ** Breakpoints **
+$b-tablet: 768px;
+$b-phone: 480px;
+
+// ** Grid Stuff **
+$grid-col-num: 6;
+$grid-col-num-tablet: 2;
+
+$fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
+@import 'font-awesome';
 @import 'box-sizing';
+@import 'reset';
+@import 'layout';

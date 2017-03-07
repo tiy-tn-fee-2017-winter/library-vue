@@ -1,0 +1,33 @@
+.section {
+  padding: $m-gutter;
+}
+
+.container {
+  max-width: 65rem;
+  margin: 0 auto;
+
+  > * + * {
+    margin: $m-gutter;
+  }
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -$m-gutter;
+
+  &__item {
+    flex-grow: 1;
+    width: calc(100% / #{$grid-col-num} - #{$m-gutter} - #{$m-gutter});
+    margin: $m-gutter;
+
+    @media (min-width: $b-phone + 1) and (max-width: $b-tablet + 1) {
+      width: calc(100% / #{$grid-col-num-tablet} - #{$m-gutter} - #{$m-gutter});
+    }
+  }
+
+  @media (max-width: $b-phone) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
