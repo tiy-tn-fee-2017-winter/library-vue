@@ -51,7 +51,7 @@ module('reducer', () => {
 
   test('it can update an existing item and replace it in the array with only one in the array', (assert) => {
     const oldState = [{ _id: '456', title: 'The Three Body Problem' }];
-    const action = { type: 'BOOK@CREATE_COMPLETE', data: { _id: '456', title: 'The Hobbit' } };
+    const action = { type: 'BOOK@UPDATE_COMPLETE', data: { _id: '456', title: 'The Hobbit' } };
     const expectedState = [{ _id: '456', title: 'The Hobbit' }];
 
     assert.deepEqual(books(oldState, action), expectedState);
@@ -59,7 +59,7 @@ module('reducer', () => {
 
   test('it can update an existing item and replace it in the array with only one in the array', (assert) => {
     const oldState = [{ _id: '456', title: 'The Three Body Problem' }, { _id: 'abc', title: 'Mostly Harmless' }];
-    const action = { type: 'BOOK@CREATE_COMPLETE', data: { _id: '456', title: 'The Hobbit' } };
+    const action = { type: 'BOOK@UPDATE_COMPLETE', data: { _id: '456', title: 'The Hobbit' } };
     const expectedState = [{ _id: '456', title: 'The Hobbit' }, { _id: 'abc', title: 'Mostly Harmless' }];
 
     assert.deepEqual(books(oldState, action), expectedState);
