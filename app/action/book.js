@@ -14,7 +14,10 @@ function parseJson(r) {
  * @return {Object}
  */
 export function findAllComplete(data = []) {
-
+  return {
+    type: 'BOOK@FINDALL_COMPLETE',
+    data
+  };
 }
 
 /**
@@ -22,7 +25,11 @@ export function findAllComplete(data = []) {
  * @return {function}
  */
 export function findAll() {
-
+  return dispatch => fetch(apiUrl)
+      .then(parseJson)
+      .then((response) => {
+        dispatch(findAllComplete(response));
+      });
 }
 
 /**
@@ -31,15 +38,22 @@ export function findAll() {
  * @return {Object}
  */
 export function findOneComplete(data = {}) {
-
+  return {
+    type: 'BOOK@FINDONE_COMPLETE',
+    data
+  };
 }
 
 /**
- * Creates a thunk to a book based on its id
+ * Creates a thunk to find all books from the server
  * @return {function}
  */
 export function findById(id) {
-
+  return dispatch => fetch(`${apiUrl}/${id}`)
+      .then(parseJson)
+      .then((response) => {
+        dispatch(findOneComplete(response));
+      });
 }
 
 /**
@@ -48,7 +62,10 @@ export function findById(id) {
  * @return {Object}
  */
 export function createComplete(data = {}) {
-
+  return {
+    type: 'BOOK@CREATE_COMPLETE',
+    data
+  };
 }
 
 /**
@@ -56,22 +73,41 @@ export function createComplete(data = {}) {
  * @return {function}
  */
 export function create(formData) {
-
+  return dispatch => fetch(apiUrl, {
+    method: 'POST',
+    headers: jsonHeaders,
+    body: JSON.stringify(formData)
+  })
+      .then(parseJson)
+      .then((response) => {
+        dispatch(createComplete(response));
+      });
 }
 
 /**
- * Creates an action object for BOOK@UPDATE_COMPLETE
+ * Creates an action object for BOOK@CREATE_COMPLETE
  * @param  {Object}  [data={}]
  * @return {Object}
  */
 export function updateComplete(data = {}) {
-
+  return {
+    type: 'BOOK@UPDATE_COMPLETE',
+    data
+  };
 }
 
 /**
- * Creates a thunk to update a book on the server
+ * Creates a thunk to update and save a new book on the server
  * @return {function}
  */
 export function update(id, formData) {
-
+  return dispatch => fetch(`${apiUrl}/${id}`, {
+    method: 'PUT',
+    headers: jsonHeaders,
+    body: JSON.stringify(formData)
+  })
+      .then(parseJson)
+      .then((response) => {
+        dispatch(updateComplete(response));
+      });
 }

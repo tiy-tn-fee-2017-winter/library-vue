@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="grid">
     <div class="grid__item grid__item--4 grid__item--center">
-      <form class="card" @submit.prevent="save(formData)">
-        <h2 class="card__header">New Book</h2>
+      <form class="card" @submit.prevent="save(formData._id, formData)">
+        <h2 class="card__header">Editing {{bookTitle}}</h2>
 
         <div class="card__content">
           <div class="form-item">
@@ -33,20 +33,39 @@
 
 <script>
 import store from '../store';
-import { create } from '../action/book';
+import { update, findById } from '../action/book';
 
 export default {
   data() {
     return {
-      formData: {}
+      formData: {},
+      bookTitle: null,
+      books: this.$select('books'),
     };
   },
 
-  methods: {
-    save(data) {
-      store.dispatch(create(data));
+  mounted() {
+    store.dispatch(findById(this.$route.params.id));
+  },
 
-      this.$router.push({ name: 'index' });
+  watch: {
+    '$route.params.id': 'getBook',
+    books: 'getBook'
+  },
+
+  methods: {
+    getBook() {
+      this.formData = this.books.find(({ _id }) => _id === this.$route.params.id) || {};
+
+      if (this.formData) {
+        this.bookTitle = this.formData.title;
+      }
+    },
+
+    save(id, data) {
+      store.dispatch(update(id, data)).then(() => {
+        this.$router.push({ name: 'index' });
+      });
     }
   },
 };
