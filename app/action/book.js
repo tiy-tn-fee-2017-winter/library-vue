@@ -14,7 +14,10 @@ function parseJson(r) {
  * @return {Object}
  */
 export function findAllComplete(data = []) {
-
+  return {
+    type: 'BOOK@FINDALL_COMPLETE',
+    data
+  };
 }
 
 /**
@@ -22,7 +25,10 @@ export function findAllComplete(data = []) {
  * @return {function}
  */
 export function findAll() {
-
+  return dispatch => fetch(apiUrl).then(parseJson)
+    .then((response) => {
+      dispatch(findAllComplete(response));
+    });
 }
 
 /**

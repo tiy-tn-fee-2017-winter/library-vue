@@ -6,13 +6,13 @@
           <h2 class="card__header">Book Library</h2>
 
           <ul class="card__collection collection">
-            <li class="collection__item">
+            <li v-for="book in books" class="collection__item">
               <div class="book-item">
                 <div class="row">
                   <div class="row__left">
                     <div class="book-item__info">
-                      <h3 class="book-item__title">The Fold</h3>
-                      <h4 class="book-item__author">Peter Cline</h4>
+                      <h3 class="book-item__title">{{book.title}}</h3>
+                      <h4 class="book-item__author">{{book.author}}</h4>
                     </div>
                   </div>
                   <div class="row__right">
@@ -29,10 +29,20 @@
 </template>
 
 <script>
+import store from '../store';
+import { findAll } from '../action/book';
+
 export default {
+  // Defining what data is available to our template
+  // And what Vue.js should listen for changes in our data
   data() {
     return {
+      books: this.$select('books'),
     };
+  },
+
+  created() {
+    store.dispatch(findAll());
   },
 
   methods: {
