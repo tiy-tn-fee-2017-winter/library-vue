@@ -16,7 +16,9 @@
                     </div>
                   </div>
                   <div class="row__right">
-                    <p class="book-item__edit"><a href="#">Edit</a></p>
+                    <p class="book-item__edit">
+                      <router-link v-bind:to="{ name: 'edit', params: { id: book._id } }">Edit</router-link>
+                    </p>
                   </div>
                 </div>
               </div>

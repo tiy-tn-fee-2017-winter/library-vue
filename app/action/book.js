@@ -37,7 +37,10 @@ export function findAll() {
  * @return {Object}
  */
 export function findOneComplete(data = {}) {
-
+  return {
+    type: 'BOOK@FINDONE_COMPLETE',
+    data
+  };
 }
 
 /**
@@ -45,7 +48,10 @@ export function findOneComplete(data = {}) {
  * @return {function}
  */
 export function findById(id) {
-
+  return dispatch => fetch(`${apiUrl}/${id}`).then(parseJson)
+    .then((response) => {
+      dispatch(findOneComplete(response));
+    });
 }
 
 /**
@@ -81,7 +87,10 @@ export function create(formData) {
  * @return {Object}
  */
 export function updateComplete(data = {}) {
-
+  return {
+    type: 'BOOK@UPDATE_COMPLETE',
+    data
+  };
 }
 
 /**
@@ -89,5 +98,12 @@ export function updateComplete(data = {}) {
  * @return {function}
  */
 export function update(id, formData) {
-
+  return dispatch => fetch(`${apiUrl}/${id}`, {
+    method: 'PUT',
+    headers: jsonHeaders,
+    body: JSON.stringify(formData),
+  }).then(parseJson)
+    .then((book) => {
+      dispatch(updateComplete(book));
+    });
 }
