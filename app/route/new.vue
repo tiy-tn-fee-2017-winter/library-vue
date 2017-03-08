@@ -1,23 +1,24 @@
 <template lang="html">
   <div class="">
     <div class="grid__item grid__item--4 grid__item--center">
-      <form class="card">
+      <form class="card" v-on:submit.prevent="save(formValues)">
         <h2 class="card__header">New Book</h2>
 
         <div class="card__content">
+          <p>{{formValues}}</p>
           <div class="form-item">
             <label for="">Title</label>
-            <input type="text" class="control" placeholder="Title">
+            <input type="text" class="control" placeholder="Title" v-model="formValues.title" name="title">
           </div>
 
           <div class="form-item">
             <label for="">Author</label>
-            <input type="text" class="control" placeholder="Author">
+            <input type="text" class="control" placeholder="Author" v-model="formValues.author" name="author">
           </div>
 
           <div class="form-item">
             <label for="">Year</label>
-            <input type="text" class="control" placeholder="Year">
+            <input type="text" class="control" placeholder="Year" v-model="formValues.year" name="year">
           </div>
         </div>
 
@@ -32,14 +33,24 @@
 </template>
 
 <script>
+import { create } from '../action/book';
+import store from '../store';
+
 export default {
   data() {
     return {
+      formValues: {
+        title: '',
+        author: '',
+        year: '',
+      },
     };
   },
 
   methods: {
-
+    save(data) {
+      store.dispatch(create(data));
+    },
   },
 };
 </script>

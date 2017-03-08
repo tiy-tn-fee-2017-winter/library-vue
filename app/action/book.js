@@ -54,7 +54,10 @@ export function findById(id) {
  * @return {Object}
  */
 export function createComplete(data = {}) {
-
+  return {
+    type: 'BOOK@CREATE_COMPLETE',
+    data
+  };
 }
 
 /**
@@ -62,7 +65,14 @@ export function createComplete(data = {}) {
  * @return {function}
  */
 export function create(formData) {
-
+  return dispatch => fetch(apiUrl, {
+    method: 'POST',
+    headers: jsonHeaders,
+    body: JSON.stringify(formData),
+  }).then(parseJson)
+    .then((book) => {
+      dispatch(createComplete(book));
+    });
 }
 
 /**
