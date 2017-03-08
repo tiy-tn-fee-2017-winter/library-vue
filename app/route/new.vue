@@ -5,7 +5,6 @@
         <h2 class="card__header">New Book</h2>
 
         <div class="card__content">
-          <p>{{formValues}}</p>
           <div class="form-item">
             <label for="">Title</label>
             <input type="text" class="control" placeholder="Title" v-model="formValues.title" name="title">
@@ -49,7 +48,10 @@ export default {
 
   methods: {
     save(data) {
-      store.dispatch(create(data));
+      store.dispatch(create(data)).then(() => {
+        // Redirect
+        this.$router.push({ name: 'index' });
+      });
     },
   },
 };
