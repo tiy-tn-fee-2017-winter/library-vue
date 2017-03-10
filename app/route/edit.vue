@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="">
     <div class="grid__item grid__item--4 grid__item--center">
-      <form class="card" v-on:submit.prevent="save(formValues)">
+      <form class="card" v-if="formValues" v-on:submit.prevent="save(formValues)">
         <h2 class="card__header">Edit Book</h2>
         <div class="card__content">
           <div class="form-item">
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { findById, update } from '../action/book';
+import { findOne, update } from '../action/book';
 import store from '../store';
 
 export default {
@@ -50,7 +50,7 @@ export default {
   mounted() {
     // Load a book based on it's id
     // Get the id from the current route ($route)
-    store.dispatch(findById(this.$route.params.id));
+    store.dispatch(findOne(this.$route.params.id));
   },
 
   // Fire methods when a value changes in the current component's data
@@ -64,7 +64,7 @@ export default {
     getBook() {
       // Find the first book in the book array where...
       // The book._id is equal to the id from the route
-      this.formValues = this.books.find(book => book._id === this.$route.params.id);
+      this.formValues = this.books.items.find(book => book._id === this.$route.params.id);
     },
 
     save(data) {

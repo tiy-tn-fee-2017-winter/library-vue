@@ -6,7 +6,7 @@
           <h2 class="card__header">Book Library</h2>
 
           <ul class="card__collection collection">
-            <li v-for="book in books" class="collection__item">
+            <li v-for="book in books.items" class="collection__item">
               <div class="book-item">
                 <div class="row">
                   <div class="row__left">
@@ -39,7 +39,7 @@ export default {
   // And what Vue.js should listen for changes in our data
   data() {
     return {
-      books: this.$select('books'),
+      books: this.$select('books')
     };
   },
 

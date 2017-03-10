@@ -3583,6 +3583,10 @@ http-signature@~1.1.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
+i@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/i/-/i-0.3.5.tgz#1d2b854158ec8169113c6cb7f6b6801e99e211d5"
+
 iconv-lite@^0.4.5, iconv-lite@~0.4.13:
   version "0.4.15"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
@@ -4422,6 +4426,10 @@ lodash.toplainobject@^3.0.0:
 lodash.union@~4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.union/-/lodash.union-4.6.0.tgz#48bb5088409f16f1821666641c44dd1aaae3cd88"
+
+lodash.unionby@^4.8.0:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/lodash.unionby/-/lodash.unionby-4.8.0.tgz#883f098ff78f564a727b7508e09cdd539734bb83"
 
 lodash.uniq@^3.2.2:
   version "3.2.2"
@@ -5602,6 +5610,15 @@ redeyed@~0.5.0:
   dependencies:
     esprima-fb "~12001.1.0-dev-harmony-fb"
 
+redux-thunk-rest@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk-rest/-/redux-thunk-rest-0.1.0.tgz#d93b72f015d9d3211dcf10c8d768bb3e555bfaab"
+  dependencies:
+    i "^0.3.5"
+    lodash.unionby "^4.8.0"
+    redux "^3.6.0"
+    sinon-stub-promise "^4.0.0"
+
 redux-thunk@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
@@ -6085,6 +6102,10 @@ simple-fmt@~0.1.0:
 simple-is@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/simple-is/-/simple-is-0.2.0.tgz#2abb75aade39deb5cc815ce10e6191164850baf0"
+
+sinon-stub-promise@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/sinon-stub-promise/-/sinon-stub-promise-4.0.0.tgz#6d498ba1198557cd01e3466af92dc7df725192c2"
 
 slash@^1.0.0:
   version "1.0.0"
